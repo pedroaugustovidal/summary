@@ -17,7 +17,7 @@ public class Sales {
 
     private Long saleId;
     private BigDecimal total;
-    private Salesman seller;
+    private String seller;
 
     public Sales(List<String> input) {
         if (input.size() != 4) {
@@ -25,29 +25,25 @@ public class Sales {
         }
 
         this.saleId = Long.parseLong(input.get(1));
-
-        BigDecimal totalBalance = getTotalValue(input);
-
-        this.total = totalBalance;
-        this.seller = Salesman.builder()
-                .name(input.get(3))
-                .build();
+        this.total = getTotalValue(input.get(2));
+        this.seller = input.get(3);
 
     }
 
-    private BigDecimal getTotalValue(List<String> input) {
-        List<String> split = Arrays.asList(input.get(2)
+    private BigDecimal getTotalValue(String input) {
+        List<String> split = Arrays.asList(input
                 .replace("[", "")
                 .replace("]", "")
                 .split(","));
 
 
-        BigDecimal totalBalance = split.stream()
-                .map(itemsSplit -> {
-                    String[] items = itemsSplit.split("-");
-                    return new BigDecimal(items[1]).multiply(new BigDecimal(items[2]));
-                })
+        return split.stream()
+                .map(this::getSaleTotalPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return totalBalance;
+    }
+
+    private BigDecimal getSaleTotalPrice(String itemsSplit) {
+        String[] items = itemsSplit.split("-");
+        return new BigDecimal(items[1]).multiply(new BigDecimal(items[2]));
     }
 }
