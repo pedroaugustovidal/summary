@@ -31,7 +31,8 @@ public class FileHandlerImpl implements FileHandler {
     @Override
     public Path writeEmptyResultFile(Path fileInput) throws IOException {
         String fileOutputName = getFileOutputName(fileInput);
-        return writeEmptyFile.execute(pathsConfig.getOutputDirectory(), fileOutputName);
+        String outputDirectory = pathsConfig.getOutputDirectory();
+        return writeEmptyFile.execute(outputDirectory, fileOutputName);
     }
 
     @Override

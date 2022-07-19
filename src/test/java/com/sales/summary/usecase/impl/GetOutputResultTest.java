@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.UUID;
 
 import static com.sales.summary.fixtures.SummaryFixture.gimmeSummary_totalCustomer2_totalSalesman_3_idBestSale7_worstSellerJose;
+import static com.sales.summary.fixtures.UuidFixture.gimmeUUID_62500db838794653a4615139a1be0e19;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -36,7 +37,7 @@ class GetOutputResultTest {
 
     @Test
     void shouldReturnSummary_WhenExecRepository() {
-        final UUID uuid = UUID.fromString("62500db8-3879-4653-a461-5139a1be0e19");
+        final UUID uuid = gimmeUUID_62500db838794653a4615139a1be0e19();
         Summary summaryExpected = gimmeSummary_totalCustomer2_totalSalesman_3_idBestSale7_worstSellerJose();
 
         when(customerRepository.countByUuidFile(uuid))

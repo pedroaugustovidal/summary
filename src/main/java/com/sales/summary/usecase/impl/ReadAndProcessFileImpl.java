@@ -25,8 +25,8 @@ public class ReadAndProcessFileImpl implements ReadAndProcessFile {
 
     @Override
     public void execute(Tuple2<Path, Path> inputOutputTuple) {
-        String input = inputOutputTuple.getT1().getFileName().toString();
-        UUID uuid = getUUIDFromFileName.execute(input);
+        String inputFileName = inputOutputTuple.getT1().getFileName().toString();
+        UUID uuid = getUUIDFromFileName.execute(inputFileName);
 
         this.execute(inputOutputTuple.getT1(), uuid);
     }

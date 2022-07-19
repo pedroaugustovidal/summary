@@ -21,16 +21,15 @@ public class GetTupleInputAndOutputFileImpl implements GetTupleInputAndOutputFil
 
     @Override
     public Mono<Tuple2<Path, Path>> execute(Path input) {
-        Path outputFile = null;
+        Path outputFile;
         try {
             outputFile = fileHandler.writeEmptyResultFile(input);
             log.info("Empty output file created.");
         } catch (IOException e) {
             log.info("Empty output file was not created.");
-            Mono.error(e);
+            return Mono.error(e);
         }
 
-        assert outputFile != null;
         return Mono.just(Tuples.of(input, outputFile));
     }
 
