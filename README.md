@@ -74,6 +74,11 @@ escalável dos arquivos.
 Entretanto, para apresentar o conhecimento técnico com webflux, foi utilizado um scheduler, inicialmente com threds, que
 depois foi adaptado para ser controlado pelas entidades do Reactor (Mono e Flux).
 
+#### Qual as vantagens do uso do webflux neste projeto?
+
+Como a leitura dos arquivos é sequêncial por linha e em buffer, não existe um ganho existencial em se utilizar o
+paradigma reativo no atual projeto. Mas a fim de demonstração, foi utilizado.
+
 ## Autores
 
 - [@Pedro Augusto Nodary Vidal](https://github.com/pedroaugustovidal)
