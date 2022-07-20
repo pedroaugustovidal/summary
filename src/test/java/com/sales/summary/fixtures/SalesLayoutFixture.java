@@ -9,7 +9,7 @@ public class SalesLayoutFixture {
     public static SalesLayout gimmeSalesLayout_saleId5_total500_sellerJose() {
         return SalesLayout.builder()
                 .saleId(5L)
-                .total(new BigDecimal("500"))
+                .total(new BigDecimal("500.00"))
                 .seller("Jose")
                 .build();
     }

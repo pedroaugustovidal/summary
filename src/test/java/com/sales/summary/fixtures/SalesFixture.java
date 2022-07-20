@@ -9,7 +9,7 @@ public class SalesFixture {
     public static Sales gimmeSales_saleId5_total500_sellerJose() {
         return Sales.builder()
                 .saleId(5L)
-                .total(new BigDecimal("500"))
+                .total(new BigDecimal("500.00"))
                 .seller("Jose")
                 .build();
     }
