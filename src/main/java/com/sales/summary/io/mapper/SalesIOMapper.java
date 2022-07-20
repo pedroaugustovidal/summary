@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SalesIOMapper {
 
-    private final SalesmanIOMapper salesmanIOMapper;
-
     public Sales toDomain(SalesLayout salesLayout) {
         return Sales.builder()
                 .saleId(salesLayout.getSaleId())
