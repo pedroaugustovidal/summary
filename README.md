@@ -35,7 +35,7 @@ Dentro do diretório nessa variável, será necessário criar as seguintes pasta
 Clone o projeto
 
 ```bash
-  git clone https://github.com/pedroaugustovidal/summary
+  git clone https://github.com/pedroaugustovidal/summary.git
 ```
 
 Entre no diretório do projeto
